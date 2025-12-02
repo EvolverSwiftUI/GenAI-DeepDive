@@ -1,2 +1,6 @@
 openai
 python-dotenv
+google-generativeai
+langchain-openai
+langchain-google-genai
+langsmith
