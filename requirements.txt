@@ -6,3 +6,4 @@ langchain-google-genai
 langchain_ollama
 langsmith
 streamlit
+langchain-huggingface

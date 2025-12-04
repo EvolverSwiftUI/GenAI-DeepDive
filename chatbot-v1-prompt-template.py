@@ -33,7 +33,7 @@ if st.button("Find Achievements",type="primary"):
     if person_name and person_role:
         with st.spinner("Searching internal knowledge base for {person_name}"):
             try:
-                #---------langchain login ---------
+                #---------langchain logic ---------
                 llm= ChatOllama(model=model_name)
                 
                 # Dynamic Prompt Template : we pass BOTH variables into the template
@@ -55,7 +55,7 @@ if st.button("Find Achievements",type="primary"):
                 chain = prompt | llm  # LCEL
                 
                 # Invoke the chain with dictionary containing both variables
-                
+                # here invoke takes dictionary as input param
                 response = chain.invoke({
                     'name': person_name,
                     'role': person_role
@@ -63,7 +63,7 @@ if st.button("Find Achievements",type="primary"):
                 
                 #Display output
                 st.markdown("----")
-                st.subheader(f" Result for {person_name} ")
+                st.subheader(f"Result for {person_name}")
                 st.success("Data Retrieved Successfully!")
                 st.markdown(response.content)
                 

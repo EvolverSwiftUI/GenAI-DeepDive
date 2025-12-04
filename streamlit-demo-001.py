@@ -6,6 +6,7 @@ st.header("This is a simple Streamlit app.")
 
 st.write("Streamlit makes it easy to create web apps for data science and machine learning.")
 
+# take input from the user using below component of streamlit.
 name = st.text_input("Enter some text:", key="user_input")
 
 if name:
