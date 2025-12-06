@@ -8,3 +8,4 @@ langsmith
 streamlit
 langchain-huggingface
 transformers
+torch

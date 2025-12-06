@@ -1,9 +1,14 @@
-from langchain_ollama import ChatOllama
+# from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def get_available_models():
     """Return list of available models."""
-    return ["phi3:3.8b", "llama3.2:3b"]
+    # return ["phi3:3.8b", "llama3.2:3b"]
+    return ["gpt-5-nano", "gpt-4o-mini"]
 
 
 def find_achievements(model_name, person_name, person_role):
@@ -20,7 +25,7 @@ def find_achievements(model_name, person_name, person_role):
     """
     try:
         #---------langchain login ---------
-        llm= ChatOllama(model=model_name)
+        llm= ChatOpenAI(model=model_name)
         
         # Dynamic ChatPrompt Template : we pass BOTH variables into the template
         
@@ -55,6 +60,6 @@ def find_achievements(model_name, person_name, person_role):
     except Exception as e:
         return {
             'success': False,
-            'message': f' Error: Could not connect to Ollama.{e}',
+            'message': f' Error: Could not connect to OpenAI.{e}',
             'content': None
         }
