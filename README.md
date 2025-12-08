@@ -4,7 +4,7 @@ A comprehensive collection of generative AI demos and applications exploring mul
 
 ## 📋 Project Overview
 
-This project demonstrates practical implementations of generative AI using various platforms including OpenAI, Google Gemini, HuggingFace, and Ollama. It includes backend services, chatbot implementations, prompt templating, and web UI demos using Streamlit.
+This project demonstrates practical implementations of generative AI using various platforms including OpenAI, Google Gemini, HuggingFace, Ollama, AWS, and Azure. It includes backend services, chatbot implementations, prompt templating, and web UI demos using Streamlit.
 
 ## 🛠️ Technology Stack
 
@@ -58,6 +58,20 @@ This project demonstrates practical implementations of generative AI using vario
 | `huggingface_demo.py` | HuggingFace model demonstrations |
 | `huggingface_local_demo.py` | Local HuggingFace model inference |
 | `ollama-llama3.2-demo.py` | Local Ollama with Llama 3.2 model |
+
+### Cloud Platform Integrations
+
+| File | Purpose |
+|------|---------|
+| `aws-demo.py` | AWS AI/ML services demonstrations |
+| `azure-demo.py` | Azure OpenAI API demonstrations |
+| `azure-langchain-demo.py` | Azure OpenAI with LangChain integration |
+
+### Utilities & Learning
+
+| File | Purpose |
+|------|---------|
+| `python-syntax-quick-demo.py` | Quick Python syntax examples and best practices |
 
 ### Web UI
 
@@ -126,6 +140,26 @@ python huggingface_local_demo.py
 python ollama-llama3.2-demo.py
 ```
 
+### AWS AI/ML Services
+```bash
+python aws-demo.py
+```
+
+### Azure OpenAI
+```bash
+python azure-demo.py
+```
+
+### Azure OpenAI with LangChain
+```bash
+python azure-langchain-demo.py
+```
+
+### Python Syntax Quick Reference
+```bash
+python python-syntax-quick-demo.py
+```
+
 ### Backend Service Example
 ```python
 from backend import find_achievements
@@ -142,23 +176,28 @@ print(result)
 ## 🔑 Key Features
 
 ### 1. **Multi-Platform LLM Support**
-   - Seamless integration with OpenAI, Google Gemini, HuggingFace, and Ollama
+   - Seamless integration with OpenAI, Google Gemini, HuggingFace, Ollama, AWS, and Azure
    - Platform-agnostic chat interface
 
-### 2. **LangChain Integration**
+### 2. **Cloud Platform Integrations**
+   - AWS AI/ML services demonstrations
+   - Azure OpenAI API support
+   - Easy switching between cloud providers
+
+### 3. **LangChain Integration**
    - Prompt templating and management
    - LLM chain orchestration (LCEL - LangChain Expression Language)
    - Structured output formatting
 
-### 3. **Multiple Chatbot Versions**
+### 4. **Multiple Chatbot Versions**
    - v1: Basic prompt template implementation
    - v2: Advanced chat template with conversation history
 
-### 4. **Local and Cloud Inference**
-   - Cloud-based: OpenAI, Google Gemini
+### 5. **Local and Cloud Inference**
+   - Cloud-based: OpenAI, Google Gemini, AWS, Azure
    - Local: HuggingFace, Ollama (supports running models locally)
 
-### 5. **Web UI**
+### 6. **Web UI**
    - Streamlit-based interactive web application
    - Real-time chat interface
 
@@ -188,6 +227,8 @@ This project is part of the GenAI-DeepDive repository by EvolverSwiftUI.
 
 - [OpenAI API Documentation](https://platform.openai.com/docs)
 - [Google Generative AI Documentation](https://ai.google.dev)
+- [Azure OpenAI Service Documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/openai)
+- [AWS AI/ML Services](https://aws.amazon.com/machine-learning)
 - [LangChain Documentation](https://python.langchain.com)
 - [HuggingFace Transformers](https://huggingface.co/docs/transformers)
 - [Ollama](https://ollama.ai)
@@ -209,5 +250,5 @@ A: v1 uses basic prompt templates, while v2 implements more advanced chat templa
 
 ---
 
-**Last Updated**: December 6, 2025  
+**Last Updated**: December 8, 2025  
 **Repository**: [GenAI-DeepDive](https://github.com/EvolverSwiftUI/GenAI-DeepDive)
