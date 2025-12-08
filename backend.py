@@ -25,6 +25,7 @@ def find_achievements(model_name, person_name, person_role):
     """
     try:
         #---------langchain login ---------
+        # llm= ChatOllama(model=model_name)
         llm= ChatOpenAI(model=model_name)
         
         # Dynamic ChatPrompt Template : we pass BOTH variables into the template
