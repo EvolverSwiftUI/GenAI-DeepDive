@@ -6,6 +6,4 @@ langchain-google-genai
 langchain_ollama
 langsmith
 streamlit
-langchain-huggingface
-transformers
-torch
+langchain_aws
