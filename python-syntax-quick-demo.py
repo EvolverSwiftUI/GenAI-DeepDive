@@ -609,6 +609,409 @@ print("Euro symbol: \u20AC")
 print(r'She said, "It\'s a raw string!"')
 print(r"This is a raw string with \"double quotes\" and 'single quotes'.")
 
+# raw string completly ignores escape sequences.
+
+# slicing strings
+sample_str = "Hello, World!"
+print("Original string:", sample_str)
+# slicing from index 0 to 4
+print("Sliced string (0 to 4):", sample_str[0:5])
+# slicing from index 7 to end
+print("Sliced string (7 to end):", sample_str[7:])
+# slicing with step
+print("Sliced string with step 2:", sample_str[::2])
+# reverse slicing
+print("Reversed string using slicing:", sample_str[::-1])
+# slicing with negative indices
+print("Sliced string using negative indices (-6 to -1):", sample_str[-6:-1])
+# slicing with start and end omitted
+print("Sliced string with start omitted (to index 4):", sample_str[:5])
+print("Sliced string with end omitted (from index 7):", sample_str[7:])
+# slicing with negative step
+print("Sliced string with negative step (-1):", sample_str[:: -1])
+# substring extraction
+substring = sample_str[7:12]
+print("Extracted substring (7 to 11):", substring)
+# slicing with variables
+start_index = 0
+end_index = 5
+sliced_with_vars = sample_str[start_index:end_index]
+print("Sliced string using variables (0 to 4):", sliced_with_vars)
+# slicing to get every 3rd character
+print("Every 3rd character from string:", sample_str[::3])
+# slicing with complex indices
+print("Sliced string (1 to -1) with step 2:", sample_str[1:-1:2])
+# slicing empty string
+empty_str = ""
+print("Slicing empty string:", empty_str[0:5])  # should return empty
+# slicing single character string
+single_char_str = "A"
+print("Slicing single character string:", single_char_str[0:1])  # should return 'A'
+# slicing with out of range indices
+print("Slicing with out of range indices (0 to 50):", sample_str[0:50])  # should return full string
+# slicing with start greater than end
+print("Slicing with start greater than end (5 to 0):", sample_str[5:0])  # should return empty string
+# slicing with step zero (should raise error)
+# print("Slicing with step zero:", sample_str[::0])  # Uncommenting this line will raise a ValueError
+# slicing unicode string
+unicode_str = "こんにちは世界"  # "Hello World" in Japanese
+print("Slicing unicode string (0 to 4):", unicode_str[0:5]) # should return 'こんにちは'    
+# slicing string with special characters
+special_str = "Hello, @World#2024!"
+print("Slicing string with special characters (7 to 12):", special_str[7:12]) # should return '@Worl'
+# slicing long string
+long_str = "This is a long string used for demonstrating slicing in Python."
+print("Slicing long string (10 to 30):", long_str[10:30]) # should return 'long string used for'
+# slicing string with spaces
+space_str = "   Leading and trailing spaces   "
+print("Slicing string with spaces (3 to -3):", space_str[3:-3]) # should return 'Leading and trailing spaces'
+# string with in and not in operators
+test_str = "The quick brown fox jumps over the lazy dog"
+print("'quick' in test_str?", 'quick' in test_str)
+print("'cat' not in test_str?", 'cat' not in test_str)
+print("'lazy' in test_str?", 'lazy' in test_str)
+print("'elephant' not in test_str?", 'elephant' not in test_str)
+# checking substrings
+print("'The' in test_str?", 'The' in test_str)
+print("'fox' not in test_str?", 'fox' not in test_str)
+print("'jumps' in test_str?", 'jumps' in test_str)
+print("'wolf' not in test_str?", 'wolf' not in test_str)
+# checking empty string
+empty_check = ""
+print("Is empty string in test_str?", empty_check in test_str)
+print("Is empty string not in test_str?", empty_check not in test_str)
+# checking case sensitivity
+print("'the' in test_str?", 'the' in test_str)  # should be False
+print("'The' in test_str?", 'The' in test_str)  # should be True
+# checking special characters
+special_check = "@"
+print("Is '@' in test_str?", special_check in test_str)  # should be False
+print("Is '#' not in test_str?", '#' not in test_str)  # should be True
+# checking numeric substrings
+numeric_str = "123"
+print("Is '123' in numeric_str?", '123' in numeric_str)  # should be True
+print("Is '456' not in numeric_str?", '456' not in numeric_str)  # should be True
+# checking longer substrings
+long_substr = "quick brown fox"
+print("Is 'quick brown fox' in test_str?", long_substr in test_str)  # should be True
+print("Is 'lazy cat' not in test_str?", 'lazy cat' not in test_str)  # should be True
+# checking substrings with spaces
+space_substr = "over the"
+print("Is 'over the' in test_str?", space_substr in test_str)  # should be True
+print("Is 'under the' not in test_str?", 'under the' not in test_str)  # should be True 
+
+# string methods
+sample_string = "  Hello, World! Welcome to Python programming.  "
+print("Original string:", sample_string)
+# strip whitespace
+print("String after strip():", sample_string.strip())
+# lower case
+print("String after lower():", sample_string.lower())
+# upper case
+print("String after upper():", sample_string.upper())
+# string is upper
+print("Is the string upper case?", sample_string.isupper())
+# string is lower
+print("Is the string lower case?", sample_string.islower())
+# title case    
+print("String after title():", sample_string.title())
+# replace substring
+print("String after replace('World', 'Universe'):", sample_string.replace("World", "Universe"))
+# split string
+print("String after split():", sample_string.split())
+# find substring
+print("Index of 'Python' in string:", sample_string.find("Python"))
+# count substring occurrences
+print("Count of 'o' in string:", sample_string.count("o"))
+# startswith    
+print("Does string start with '  Hello'?", sample_string.startswith("  Hello"))
+# endswith
+print("Does string end with 'programming.  '?", sample_string.endswith("programming.  "))
+# isalpha
+print("Is 'Hello' alphabetic?", "Hello".isalpha())
+# isdigit
+print("Is '12345' numeric?", "12345".isdigit())
+# isspace
+print("Is '   ' whitespace?", "   ".isspace())
+# capitalize
+print("String after capitalize():", sample_string.capitalize())
+# title case
+print("String after title():", sample_string.title())
+# center string
+print("String after center(50, '*'):", sample_string.center(50, '*'))
+# join strings
+words = ["Hello", "from", "Python"]
+print("Joined string with space:", " ".join(words))
+# zfill
+print("String after zfill(30):", sample_string.strip().zfill(30))
+# partition
+print("String after partition('World'):", sample_string.partition("World"))
+# rpartition
+print("String after rpartition('o'):", sample_string.rpartition("o"))
+# swapcase
+print("String after swapcase():", sample_string.swapcase())
+# expandtabs
+tabbed_string = "Hello\tWorld\tPython"
+print("String after expandtabs(4):", tabbed_string.expandtabs(4))
+# formatting with f-strings
+name = "Sivaram"
+age = 30
+print(f"My name is {name} and I am {age} years old.")
+# formatting with format()
+print("My name is {} and I am {} years old.".format(name, age))
+# formatting with % operator
+print("My name is %s and I am %d years old." % (name, age))
+
+# raise exception
+def divide(a, b):
+    if b == 0:
+        raise ValueError("Denominator cannot be zero.")
+    return a / b
+# test the function 
+try:
+    result = divide(10, 0)
+    print("Result of division:", result)
+except ValueError as e:
+    print("Error occurred:", e)
+
+# custom exception
+class NegativeValueError(Exception):
+    pass    
+    def square_root(x):
+        if x < 0:
+            raise NegativeValueError("Cannot compute square root of negative value.")
+        return x ** 0.5
+    try:
+        result = square_root(-25)
+        print("Square root:", result)
+    except NegativeValueError as e:
+        print("Error occurred:", e)
+
+# raise custom exception
+raise NegativeValueError("This is a custom negative value error.")
+# Note: The above line will raise the exception when executed.
+# raise general exception
+raise Exception("This is a general exception.")
+# Note: The above line will raise the exception when executed.
+
+# assert statement
+def calculate_average(numbers):
+    assert len(numbers) > 0, "The list of numbers cannot be empty."
+    return sum(numbers) / len(numbers)  
+# test the function
+try:
+    avg = calculate_average([])
+    print("Average:", avg)
+except AssertionError as e:
+    print("Assertion Error:", e)
+# successful assertion
+try:
+    avg = calculate_average([10, 20, 30])
+    print("Average:", avg)
+except AssertionError as e:
+    print("Assertion Error:", e)    
+
+# raise assertion error
+assert 2 + 2 == 5, "Math is broken!"
+# Note: The above line will raise an AssertionError when executed.
+# successful assertion
+assert 2 + 2 == 4, "Math is still working!"
+print("Assertion passed: Math is working correctly.")
+
+# import logging module
+import logging
+# configure logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+# log messages of different severity levels
+logging.debug("This is a debug message.")
+logging.info("This is an info message.")
+logging.warning("This is a warning message.")
+logging.error("This is an error message.")
+logging.critical("This is a critical message.")
+# log an exception
+try:
+    result = 10 / 0
+except ZeroDivisionError as e:
+    logging.exception("An exception occurred: %s", e)
+# custom logger
+logger = logging.getLogger("customLogger")
+logger.setLevel(logging.INFO)
+# create console handler
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+# create formatter
+formatter = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
+console_handler.setFormatter(formatter)
+# add handler to logger
+logger.addHandler(console_handler)
+# log messages using custom logger
+logger.info("This is an info message from custom logger.")
+logger.error("This is an error message from custom logger.")
+# log messages with variables
+user = "Sivaram"
+action = "login"
+logger.info("User %s performed %s action.", user, action)
+# log a warning with variables
+disk_space = 5  # in percentage
+logger.warning("Low disk space: %d%% remaining.", disk_space)
+# log a critical error
+try:
+    with open("non_existent_file.txt", "r") as file:
+        content = file.read()
+except FileNotFoundError as e:
+    logger.critical("Critical error: %s", e)
+# Note: The above code will log messages to the console when executed.
+
+# lamda functions
+# simple lambda function to add two numbers
+add = lambda x, y: x + y
+result = add(5, 10)
+print("Sum of 5 and 10 using lambda function:", result)
+# lambda function to square a number
+square = lambda x: x ** 2
+result = square(6)
+print("Square of 6 using lambda function:", result)
+# lambda function with multiple parameters
+multiply = lambda x, y, z: x * y * z
+result = multiply(2, 3, 4)
+print("Multiplication of 2, 3 and 4 using lambda function:", result)
+# lambda function with no parameters
+greet = lambda: "Hello, World!"
+message = greet()
+print("Greeting message using lambda function:", message)
+# using lambda with map()
+numbers = [1, 2, 3, 4, 5]
+squared_numbers = list(map(lambda x: x ** 2, numbers))
+print("Squared numbers using lambda with map():", squared_numbers)
+# using lambda with filter()
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print("Even numbers using lambda with filter():", even_numbers)
+# using lambda with reduce()
+from functools import reduce
+product = reduce(lambda x, y: x * y, numbers)
+print("Product of numbers using lambda with reduce():", product)
+
+
+# lamda function without name
+result = (lambda x, y: x - y)(10, 4)
+print("Result of subtraction using unnamed lambda function:", result)
+# lambda function returning another function
+def make_incrementer(n):
+    return lambda x: x + n
+increment_by_5 = make_incrementer(5)
+result = increment_by_5(10)
+print("Result of incrementing 10 by 5 using lambda function:", result)
+
+# make adder function using lambda
+def make_adder(n):
+    return lambda x: x + n
+add_10 = make_adder(10)
+result = add_10(5)
+print("Result of adding 10 to 5 using lambda function:", result)
+
+# ternary operator
+a = 10
+b = 20
+max_value = a if a > b else b
+print("Maximum value between a and b using ternary operator:", max_value)
+# another example
+num = 15
+parity = "Even" if num % 2 == 0 else "Odd"
+print("The number is:", parity)
+
+# passing multiple parameters to function using *argumnets
+def concatenate_strings(*args):
+    result = ""
+    for string in args:
+        result += string + " "
+    return result.strip()
+concatenated = concatenate_strings("Hello", "from", "Python", "functions")
+print("Concatenated string using *arguments:", concatenated)
+# passing multiple keyword arguments using **kwargs
+def print_person_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+print_person_info(name="Sivaram", age=30, city="New York")
+# passing list to function using *arguments
+def sum_numbers(*args):
+    return sum(args)
+total = sum_numbers(1, 2, 3, 4, 5)
+print("Sum of numbers using *arguments:", total)
+# passing dictionary to function using **kwargs
+def display_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+info = {"name": "Sivaram", "age": 30, "city": "New York"}
+display_info(**info)
+# combining *args and **kwargs in function
+def combined_function(*args, **kwargs):
+    print("Positional arguments:", args)
+    print("Keyword arguments:", kwargs)
+combined_function(1, 2, 3, name="Sivaram", age=30)
+# unpacking list and dictionary while calling function
+def sample_function(a, b, c, name, age):
+    print(f"a: {a}, b: {b}, c: {c}, name: {name}, age: {age}")
+num_list = [10, 20, 30]
+person_info = {"name": "Sivaram", "age": 30}
+sample_function(*num_list, **person_info)
+# using * to unpack list in for loop
+fruits = ["apple", "banana", "cherry"]
+for fruit in [*fruits]:
+    print("Fruit from unpacked list in for loop:", fruit)
+# using ** to unpack dictionary in function call
+def greet_person(name, age):
+    print(f"Hello, {name}. You are {age} years old.")
+person_dict = {"name": "Sivaram", "age": 30}
+greet_person(**person_dict)
+# using * to unpack string into list
+def print_characters(*args):
+    for char in args:
+        print("Character from unpacked string:", char)
+sample_string = "Hello"
+print_characters(*sample_string)
+# using ** to unpack nested dictionary
+def display_address(street, city, country):
+    print(f"Street: {street}, City: {city}, Country: {country}")
+address_dict = {"street": "123 Main St", "city": "New York", "country": "USA"}
+display_address(**address_dict)
+# combining *args and regular parameters
+def mixed_parameters(x, y, *args):
+    print(f"x: {x}, y: {y}, args: {args}")
+mixed_parameters(1, 2, 3, 4, 5)
+# combining **kwargs and regular parameters
+def mixed_kwargs(name, age, **kwargs):
+    print(f"name: {name}, age: {age}, kwargs: {kwargs}")
+mixed_kwargs("Sivaram", 30, city="New York", profession="Engineer")
+# using * to unpack set in function call
+def print_set_elements(*args):
+    for element in args:
+        print("Element from unpacked set:", element)
+sample_set = {1, 2, 3}
+print_set_elements(*sample_set)
+
+# switch case using match-case
+def day_of_week(day):
+    match day:
+        case 1:
+            return "Monday"
+        case 2:
+            return "Tuesday"
+        case 3:
+            return "Wednesday"
+        case 4:
+            return "Thursday"
+        case 5:
+            return "Friday"
+        case 6:
+            return "Saturday"
+        case 7:
+            return "Sunday"
+        case _:
+            return "Invalid day"
+
+# test the function
+day_name = day_of_week(3)
+print("Day of the week for day 3 is:", day_name)
 
 
 
