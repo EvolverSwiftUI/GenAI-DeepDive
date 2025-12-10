@@ -3,7 +3,8 @@ python-dotenv
 google-generativeai
 langchain-openai
 langchain-google-genai
-langchain_ollama
+langchain-ollama
 langsmith
 streamlit
-langchain_aws
+langchain-aws
+scikit-learn
