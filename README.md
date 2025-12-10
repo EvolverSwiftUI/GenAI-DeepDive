@@ -4,7 +4,7 @@ A comprehensive collection of generative AI demos and applications exploring mul
 
 ## 📋 Project Overview
 
-This project demonstrates practical implementations of generative AI using various platforms including OpenAI, Google Gemini, HuggingFace, Ollama, AWS, and Azure. It includes backend services, chatbot implementations, prompt templating, and web UI demos using Streamlit.
+This project demonstrates practical implementations of generative AI using various platforms including OpenAI, Google Gemini, HuggingFace, Ollama, AWS, and Azure. It includes backend services, chatbot implementations, prompt templating, vector embeddings for semantic search, and web UI demos using Streamlit.
 
 ## 🛠️ Technology Stack
 
@@ -66,6 +66,15 @@ This project demonstrates practical implementations of generative AI using vario
 | `aws-demo.py` | AWS AI/ML services demonstrations |
 | `azure-demo.py` | Azure OpenAI API demonstrations |
 | `azure-langchain-demo.py` | Azure OpenAI with LangChain integration |
+
+### Vector Embeddings & Semantic Search
+
+| File | Purpose |
+|------|---------|
+| `1_embedding_openai_query.py` | Generate embeddings using OpenAI API |
+| `2_embedding_openai_docs.py` | Create embeddings for document processing |
+| `3_embedding_ollama_query.py` | Local embeddings using Ollama |
+| `4_embedding_similarity_search.py` | Semantic similarity search implementation |
 
 ### Utilities & Learning
 
@@ -160,6 +169,24 @@ python azure-langchain-demo.py
 python python-syntax-quick-demo.py
 ```
 
+### Embedding Demos
+
+**OpenAI Embeddings**
+```bash
+python 1_embedding_openai_query.py
+python 2_embedding_openai_docs.py
+```
+
+**Ollama Local Embeddings**
+```bash
+python 3_embedding_ollama_query.py
+```
+
+**Semantic Similarity Search**
+```bash
+python 4_embedding_similarity_search.py
+```
+
 ### Backend Service Example
 ```python
 from backend import find_achievements
@@ -179,25 +206,30 @@ print(result)
    - Seamless integration with OpenAI, Google Gemini, HuggingFace, Ollama, AWS, and Azure
    - Platform-agnostic chat interface
 
-### 2. **Cloud Platform Integrations**
+### 2. **Vector Embeddings & Semantic Search**
+   - OpenAI and Ollama embedding support
+   - Semantic similarity search implementations
+   - Document embedding and retrieval
+
+### 3. **Cloud Platform Integrations**
    - AWS AI/ML services demonstrations
    - Azure OpenAI API support
    - Easy switching between cloud providers
 
-### 3. **LangChain Integration**
+### 4. **LangChain Integration**
    - Prompt templating and management
    - LLM chain orchestration (LCEL - LangChain Expression Language)
    - Structured output formatting
 
-### 4. **Multiple Chatbot Versions**
+### 5. **Multiple Chatbot Versions**
    - v1: Basic prompt template implementation
    - v2: Advanced chat template with conversation history
 
-### 5. **Local and Cloud Inference**
+### 6. **Local and Cloud Inference**
    - Cloud-based: OpenAI, Google Gemini, AWS, Azure
    - Local: HuggingFace, Ollama (supports running models locally)
 
-### 6. **Web UI**
+### 7. **Web UI**
    - Streamlit-based interactive web application
    - Real-time chat interface
 
@@ -250,5 +282,5 @@ A: v1 uses basic prompt templates, while v2 implements more advanced chat templa
 
 ---
 
-**Last Updated**: December 8, 2025  
+**Last Updated**: December 10, 2025  
 **Repository**: [GenAI-DeepDive](https://github.com/EvolverSwiftUI/GenAI-DeepDive)
