@@ -41,8 +41,19 @@ print(docs[0].metadata)
 
 
 # CHUNK
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=CHUNK_SIZE,
+    chunk_overlap=CHUNK_OVERLAP
+)
+chunks = splitter.split_documents(docs)
+print(f"Chunks Created: {len(chunks)}")
+print(chunks[0])
+
 
 # Vector DB with granite Embeddings
+embeddings = OpenAIEmbeddings(model=EMBED_MODEL)
+
+
 
 # LLM
 
