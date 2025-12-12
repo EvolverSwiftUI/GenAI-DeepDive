@@ -53,12 +53,60 @@ print(chunks[0])
 # Vector DB with granite Embeddings
 embeddings = OpenAIEmbeddings(model=EMBED_MODEL)
 
+vector_db = Chroma(
+    collection_name="pdf_collection",
+    embedding_function=embeddings,
+    persist_directory=CHROMA_DIR
+)
+
+vector_db.add_documents(chunks)
 
 
 # LLM
+# llm = ChatOllama(model=LLM_MODEL)
+llm = ChatOpenAI(model=LLM_MODEL)
+
 
 # PROMPT
+prompt = ChatPromptTemplate.from_messages(
+    """
+    Use only the cotext below to answer the question.
 
-# FINAL RAG FUNCTION
+    Context:
+    {context}
+
+    Question:
+    {question}
+    """
+)
+
+# FINAL RAG FUNCTION (manual RAG)
+def rag(question: str) -> str:
+    #1 retrieve top chunks from vector DB
+    retriever = vector_db.as_retriever(search_kwargs={"k": 3})
+    docs = retriever.invoke(question)
+
+    #2 combine retrieved chunks
+    context = "\n\n".join([doc.page_content for doc in docs])
+
+    #3 create the final prompt
+    final_prompt = prompt.from_messages(
+        context=context,
+        question=question
+    )
+
+    #4 send to llm for final answer
+    response = llm.invoke(final_prompt)
+
+    return response.content
+
 
 # CHAT LOOP
+
+while True:
+    user_question = input("You: ")
+    if user_question.lower() == 'exit':
+        break
+
+    answer = rag(user_question)
+    print(f"Answer: {answer.content}\n")
