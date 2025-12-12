@@ -2,10 +2,10 @@
 from langchain_ollama import ChatOllama
 from langchain_ollama import OllamaEmbeddings
 
-from langchain_openai import ChatOpenAI
-from langchain_openai import OpenAIEmbeddings
+# from langchain_openai import ChatOpenAI
+# from langchain_openai import OpenAIEmbeddings
 
-from langchain.core_prompts import ChatPromptTemplate
+from langchain_core.prompts import ChatPromptTemplate
 
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -14,18 +14,18 @@ from langchain_chroma import Chroma
 
 from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
 
 # CONFIG
 PDF_PATH = "./docs/myfile.pdf"
 CHROMA_DIR = "./my_chroma_db"
 
-# EMBED_MODEL = "granite-embedding:latest"
-# LLM_MODEL = "llama3.2:3b"
+EMBED_MODEL = "granite-embedding:latest"
+LLM_MODEL = "llama3.2:3b"
 
-EMBED_MODEL = "text-embedding-3-large"
-LLM_MODEL = "gpt-5-nano"
+# EMBED_MODEL = "text-embedding-3-large"
+# LLM_MODEL = "gpt-5-nano"
 
 CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 200
@@ -51,7 +51,8 @@ print(chunks[0])
 
 
 # Vector DB with granite Embeddings
-embeddings = OpenAIEmbeddings(model=EMBED_MODEL)
+embeddings = OllamaEmbeddings(model=EMBED_MODEL)
+# embeddings = OpenAIEmbeddings(model=EMBED_MODEL)
 
 vector_db = Chroma(
     collection_name="pdf_collection",
@@ -63,13 +64,13 @@ vector_db.add_documents(chunks)
 
 
 # LLM
-# llm = ChatOllama(model=LLM_MODEL)
-llm = ChatOpenAI(model=LLM_MODEL)
+llm = ChatOllama(model=LLM_MODEL)
+# llm = ChatOpenAI(model=LLM_MODEL)
 
 
 # PROMPT
-prompt = ChatPromptTemplate.from_messages(
-    """
+prompt = ChatPromptTemplate.from_template(
+    '''
     Use only the cotext below to answer the question.
 
     Context:
@@ -77,11 +78,11 @@ prompt = ChatPromptTemplate.from_messages(
 
     Question:
     {question}
-    """
+    '''
 )
 
 # FINAL RAG FUNCTION (manual RAG)
-def rag(question: str) -> str:
+def rag(question):
     #1 retrieve top chunks from vector DB
     retriever = vector_db.as_retriever(search_kwargs={"k": 3})
     docs = retriever.invoke(question)
@@ -90,10 +91,7 @@ def rag(question: str) -> str:
     context = "\n\n".join([doc.page_content for doc in docs])
 
     #3 create the final prompt
-    final_prompt = prompt.from_messages(
-        context=context,
-        question=question
-    )
+    final_prompt = prompt.invoke({"context": context, "question": question})
 
     #4 send to llm for final answer
     response = llm.invoke(final_prompt)
@@ -109,4 +107,4 @@ while True:
         break
 
     answer = rag(user_question)
-    print(f"Answer: {answer.content}\n")
+    print(f"Answer: {answer}\n")

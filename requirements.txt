@@ -1,6 +1,7 @@
 openai
 python-dotenv
 google-generativeai
+langchain
 langchain-openai
 langchain-google-genai
 langchain-ollama
@@ -10,3 +11,5 @@ langchain-aws
 scikit-learn
 chromadb
 langchain-chroma
+langchain-community
+pypdf
