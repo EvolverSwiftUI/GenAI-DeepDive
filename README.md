@@ -81,6 +81,9 @@ This project demonstrates practical implementations of generative AI using vario
 | File | Purpose |
 |------|---------|
 | `python-syntax-quick-demo.py` | Quick Python syntax examples and best practices |
+| `langchain_with_memory.py` | LangChain chat example with memory enabled |
+| `langchain_without_memory.py` | LangChain chat example without memory |
+| `rag-langchain-ollama.py` | Retrieval-Augmented Generation (RAG) example using LangChain + Ollama |
 
 ### Web UI
 
@@ -187,6 +190,14 @@ python 3_embedding_ollama_query.py
 python 4_embedding_similarity_search.py
 ```
 
+### LangChain & RAG Demos
+
+```bash
+python langchain_with_memory.py
+python langchain_without_memory.py
+python rag-langchain-ollama.py
+```
+
 ### Backend Service Example
 ```python
 from backend import find_achievements
@@ -216,10 +227,12 @@ print(result)
    - Azure OpenAI API support
    - Easy switching between cloud providers
 
-### 4. **LangChain Integration**
+### 4. **LangChain Integration & RAG**
    - Prompt templating and management
    - LLM chain orchestration (LCEL - LangChain Expression Language)
    - Structured output formatting
+   - Memory-enabled and stateless chat examples (`langchain_with_memory.py`, `langchain_without_memory.py`)
+   - Retrieval-Augmented Generation example using LangChain + Ollama (`rag-langchain-ollama.py`)
 
 ### 5. **Multiple Chatbot Versions**
    - v1: Basic prompt template implementation
@@ -282,5 +295,5 @@ A: v1 uses basic prompt templates, while v2 implements more advanced chat templa
 
 ---
 
-**Last Updated**: December 10, 2025  
+**Last Updated**: December 13, 2025  
 **Repository**: [GenAI-DeepDive](https://github.com/EvolverSwiftUI/GenAI-DeepDive)
