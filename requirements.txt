@@ -13,3 +13,4 @@ chromadb
 langchain-chroma
 langchain-community
 pypdf
+langchain-anthropic
