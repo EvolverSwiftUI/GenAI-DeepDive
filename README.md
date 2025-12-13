@@ -198,6 +198,34 @@ python langchain_without_memory.py
 python rag-langchain-ollama.py
 ```
 
+### About `rag-langchain-ollama.py`
+
+This script demonstrates a Retrieval-Augmented Generation (RAG) workflow using LangChain components and Ollama models.
+
+- **Purpose**: Ingest a PDF, split it into chunks, create vector embeddings, store them in a Chroma vector DB, retrieve the most relevant chunks for a user query, and generate an answer using an Ollama LLM constrained to the retrieved context.
+- **Config (edit in file)**:
+   - `PDF_PATH` — path to the input PDF (default: `./docs/myfile.pdf`)
+   - `CHROMA_DIR` — Chroma DB directory (default: `./my_chroma_db`)
+   - `EMBED_MODEL` — embedding model (default: `granite-embedding:latest`)
+   - `LLM_MODEL` — LLM model for generation (default: `llama3.2:3b`)
+   - `CHUNK_SIZE`, `CHUNK_OVERLAP` — control text chunking behavior
+- **How it works (high-level)**:
+   1. Load the PDF using `PyPDFLoader` and split into chunks with `RecursiveCharacterTextSplitter`.
+   2. Create embeddings with `OllamaEmbeddings` and add them to a `Chroma` collection.
+   3. For each user question, retrieve top-k chunks from Chroma, build a prompt that includes only the retrieved context, and call `ChatOllama` to generate the final answer.
+- **Run**:
+   1. Ensure Ollama is running and the required models are installed locally (or switch to OpenAI embeddings/LLM by editing the script).
+   2. Place your PDF at `PDF_PATH` or update the constant.
+   3. Run:
+       ```bash
+       python rag-langchain-ollama.py
+       ```
+   4. Ask questions at the prompt and type `exit` to quit.
+- **Notes & tips**:
+   - Persist embeddings to avoid re-indexing on every run (check `Chroma` persistence options).
+   - Reduce `k` or truncate context if you hit token limits with the LLM.
+   - If switching to cloud embeddings (OpenAI), enable `load_dotenv()` and set API keys in `.env`.
+
 ### Backend Service Example
 ```python
 from backend import find_achievements
